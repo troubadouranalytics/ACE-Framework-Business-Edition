@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACE Framework Business Edition</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 3em;
+            margin: 0 0 20px 0;
+            font-weight: 300;
+        }
+        
+        .header .subtitle {
+            font-size: 1.3em;
+            font-weight: 300;
+            margin-bottom: 30px;
+        }
+        
+        .header .ace-advantage {
+            font-size: 1.5em;
+            font-weight: 600;
+            margin: 20px 0;
+            color: #3498db;
+        }
+        
+        .header .tagline {
+            font-size: 1.1em;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .intro {
+            padding: 50px 40px;
+            background: #f8f9fa;
+        }
+        
+        .intro h2 {
+            color: #2c3e50;
+            font-size: 2.2em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .problem-box {
+            background: #fff5f5;
+            border-left: 5px solid #e53e3e;
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .solution-box {
+            background: #f0fff4;
+            border-left: 5px solid #38a169;
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .comparison-section {
+            padding: 40px;
+        }
+        
+        .comparison-section h2 {
+            color: #2c3e50;
+            text-align: center;
+            font-size: 2.2em;
+            margin-bottom: 40px;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+        
+        .prompt-box {
+            background: #e8f4f8;
+            padding: 20px;
+            margin: 30px 0 20px 0;
+            border-radius: 8px;
+            border-left: 5px solid #3498db;
+        }
+        
+        .prompt-box h3 {
+            margin: 0 0 15px 0;
+            color: #2c3e50;
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .response-card {
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .card-header {
+            padding: 20px;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        .fresh-header {
+            background: #fed7d7;
+            color: #742a2a;
+        }
+        
+        .framework-header {
+            background: #c6f6d5;
+            color: #22543d;
+        }
+        
+        .card-content {
+            padding: 20px;
+            background: white;
+        }
+        
+        .response-text {
+            background: #f7fafc;
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 0.95em;
+            margin-bottom: 15px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        
+        .framework-summary {
+            background: #fff3e0;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            border-left: 4px solid #ff9800;
+        }
+        
+        .investigation-summary {
+            background: #e8f5e8;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            border-left: 4px solid #28a745;
+        }
+        
+        .advantages-list {
+            background: #f8f9fa;
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 8px;
+            border-left: 4px solid #007bff;
+        }
+        
+        .advantages-list h3 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        
+        .advantages-list ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .advantages-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .advantages-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .advantages-list strong {
+            color: #007bff;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>ACE Framework</h1>
+        <div class="subtitle">Business Edition</div>
+        <div class="ace-advantage">The ACE Advantage</div>
+        <div class="tagline">
+            Transform AI analysis from academic theory to practical, results-oriented insights
+        </div>
+    </div>
+
+    <div class="intro">
+        <h2>Why AI Analysis is Transforming Business</h2>
+        
+        <div class="solution-box">
+            <h3>✅ Unprecedented Analytical Power</h3>
+            <p>AI can process vast amounts of information, identify patterns across multiple data sources, and provide 24/7 analytical support for complex business decisions. It offers objective analysis free from personal biases, office politics, and emotional decision-making that can cloud human judgment.</p>
+        </div>
+
+        <h2 style="margin-top: 50px;">But Current AI Has Critical Limitations</h2>
+        
+        <div class="problem-box">
+            <h3>❌ Analytical Blind Spots</h3>
+            <p>Current AI systems often default to "both sides" analysis even when evidence clearly supports one conclusion. They get caught up in conventional business wisdom rather than examining actual performance data.</p>
+        </div>
+        
+        <div class="problem-box">
+            <h3>❌ Academic Over Practical</h3>
+            <p>AI tends toward theoretical balance and abstract frameworks instead of focusing on real-world outcomes and measurable results that matter to your business.</p>
+        </div>
+        
+        <div class="solution-box">
+            <h3>✅ The ACE Advantage</h3>
+            <p>Our framework redirects AI toward evidence-first analysis, emphasizing practical results over conventional assumptions. It also provides a structured protocol for conducting further investigations. Get clear, actionable insights based on what actually works, not what sounds good in theory.</p>
+        </div>
+    </div>
+
+    <div class="comparison-section">
+        <h2>The ACE Advantage - Analytical Research Methodology</h2>
+        <p class="section-subtitle">Premium consulting methodology now available through enhanced AI</p>
+        
+        <div class="investigation-summary">
+            <p>AI often provides generic advice and suggests you "consult professionals." The ACE Framework prompts AI to follow the systematic Investigation and Knowledge Review Protocol - a comprehensive analytical methodology for your business needs.</p>
+        </div>
+        
+        <div class="advantages-list">
+            <h3>Seven-Domain Knowledge Assessment System:</h3>
+            <p>AI is prompted to identify specialized knowledge: <strong>Technical/Engineering Expertise</strong> (product specs, manufacturing processes, technical feasibility), <strong>Legal/Regulatory Knowledge</strong> (compliance requirements, regulatory changes, legal precedents), <strong>Industry-Specific Intelligence</strong> (sector trends, competitive dynamics, market conditions), <strong>Financial/Accounting Analysis</strong> (cost structures, revenue models, financial implications), <strong>Historical Context</strong> (past implementations, case studies, precedent analysis), <strong>Geographic/Regional Factors</strong> (location-specific conditions, regional variations), and <strong>Operational Requirements</strong> (implementation challenges, resource needs, timeline considerations).</p>
+            
+            <h3>Six Research Methodologies Integration:</h3>
+            <p>AI is prompted to present further research directions: <strong>Academic Research Review</strong> (scholarly studies, peer-reviewed analysis), <strong>Industry Case Studies</strong> (comparable implementations, success/failure examples), <strong>Alternative Methodological Approaches</strong> (competing analytical frameworks), <strong>Comparative Analysis</strong> (benchmarking against similar situations), <strong>Expert Opinion Integration</strong> (subject matter expertise, specialist knowledge), and <strong>Evidence Contradiction Search</strong> (information that challenges conclusions, alternative interpretations).</p>
+        </div>
+
+        <p class="section-subtitle">Real example of how the ACE Framework improves AI capabilities for immediate business insights</p>
+
+        <!-- Partnership Structure Example -->
+        <div class="prompt-box">
+            <h3>Business Question:</h3>
+            <p><em>"I plan to start a consulting firm together with a business partner. How should we structure the business?"</em></p>
+        </div>
+        
+        <div class="comparison-grid">
+            <div class="response-card">
+                <div class="card-header fresh-header">Standard AI Response</div>
+                <div class="card-content">
+                    <div class="response-text">
+                        "There are several business structures to consider for your consulting firm, each with different implications for taxes, liability, and operations: Limited Liability Company (LLC) is often the most popular choice... Partnership structures include general partnerships... S Corporation could work if you want to potentially save on self-employment taxes... Tax implications vary significantly between structures, so consulting with an accountant familiar with your state's laws is essential... What type of consulting services are you planning to offer?"
+                    </div>
+                </div>
+            </div>
+            
+            <div class="response-card">
+                <div class="card-header framework-header">ACE Framework Response</div>
+                <div class="card-content">
+                    <div class="response-text">
+                        "Looking at business structures for a consulting partnership, the evidence shows several clear patterns... Data consistently shows LLCs outperform traditional partnerships for professional services... LLC formation: $100-800 depending on state, Ongoing compliance: $200-500 annually, Liability insurance reduction: Often 20-40% lower premiums... Legal/Regulatory Knowledge that could improve this analysis: State-specific LLC advantages, Professional licensing requirements... Research Directions: Case studies of successful consulting partnerships, Comparative analysis of partnership agreements... Would you like me to investigate any of these specific knowledge domains?"
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="framework-summary">
+            <strong>The ACE Advantage:</strong> The framework provides evidence-based analysis with specific cost data and systematic identification of knowledge domains (Legal/Regulatory, Industry-Specific Intelligence) plus concrete research directions (case studies, comparative analysis), while standard AI offers generic structure options and vague suggestion to "consult an accountant" without identifying what specific expertise areas matter most.
+        </div>
+    </div>
+
+    <div class="comparison-section">
+        <h2>The ACE Advantage - Practical Business Intelligence</h2>
+        <p class="section-subtitle">Evidence-first analysis that cuts through conventional business wisdom</p>
+        
+        <div class="investigation-summary">
+            <p>Standard AI analysis often defaults to "both sides" framing and defers to conventional business wisdom even when evidence clearly supports specific conclusions. The ACE Framework redirects AI toward evidence-first analysis that examines actual outcomes rather than theoretical justifications.</p>
+        </div>
+        
+        <div class="advantages-list">
+            <h3>Four Primary Evidence-First Questions:</h3>
+            <p>AI is prompted to focus on measurable outcomes: <strong>What are the actual results?</strong> (measurable outcomes rather than intended goals), <strong>Who benefits and who bears costs?</strong> (concrete effects on different parties), <strong>What does the evidence show?</strong> (data, historical comparisons, practical outcomes), and <strong>What works in practice?</strong> (comparing theoretical claims with real-world performance).</p>
+            
+            <h3>Four Common Analytical Traps Eliminated:</h3>
+            <p>AI is trained to avoid standard business justifications: <strong>"Market forces justify current arrangements"</strong> (examine whether arrangements actually produce good outcomes), <strong>"There are valid arguments on both sides"</strong> (when evidence is clear, acknowledge it rather than false balance), <strong>"Industry standards justify these practices"</strong> (examine whether standard practices actually produce good results), and <strong>"Complex factors make assessment difficult"</strong> (often used to avoid examining straightforward evidence).</p>
+        </div>
+        
+        <p class="section-subtitle">Real examples of how the ACE Framework improves AI capabilities for immediate business insights</p>
+        
+        <!-- Management Consulting Example -->
+        <div class="prompt-box">
+            <h3>Business Question:</h3>
+            <p><em>"A management consulting firm is proposing a $300K 'operational efficiency review' that they say will identify 20% cost savings across our manufacturing operation. They want 6 months access to our processes and staff. Should we hire them?"</em></p>
+        </div>
+        
+        <div class="comparison-grid">
+            <div class="response-card">
+                <div class="card-header fresh-header">Standard AI Response</div>
+                <div class="card-content">
+                    <div class="response-text">
+                        "This is a significant investment that deserves careful scrutiny... Their 'guaranteed' 20% savings claim is unusually high and specific without knowing your operations... What's their track record with similar manufacturing companies? Ask for specific case studies and references... Would a shorter diagnostic (4-6 weeks) make more sense initially? Are there specific pain points you already know about that could be addressed more directly?"
+                    </div>
+                </div>
+            </div>
+            
+            <div class="response-card">
+                <div class="card-header framework-header">ACE Framework Response</div>
+                <div class="card-content">
+                    <div class="response-text">
+                        "What does the evidence show about consulting engagements like this? The track record for these broad 'operational efficiency' projects is mixed at best... The consulting firm gets $300K guaranteed, regardless of whether you achieve any savings... More realistic outcomes: Some legitimate efficiency opportunities identified (probably 5-8% savings potential), recommendations that duplicate what your experienced staff already know... The $300K would likely generate better returns invested in your own team's improvement initiatives."
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="framework-summary">
+            <strong>The ACE Advantage:</strong> The framework exposes that consulting firms get paid $300K regardless of results and cites actual industry track records showing mixed outcomes, while standard AI treats expensive proposals as potentially legitimate investments requiring due diligence.
+        </div>
+
+        <!-- Salesforce CRM Example -->
+        <div class="prompt-box">
+            <h3>Business Question:</h3>
+            <p><em>"Salesforce is proposing we switch from our current CRM ($50/month total) to their platform at $300/user/month for our 20-person sales team. They promise 40% better conversion rates. Worth it?"</em></p>
+        </div>
+        
+        <div class="comparison-grid">
+            <div class="response-card">
+                <div class="card-header fresh-header">Standard AI Response</div>
+                <div class="card-content">
+                    <div class="response-text">
+                        "This is a massive cost increase that demands serious skepticism... Current cost: $50/month ($600/year), Proposed cost: $6,000/month ($72,000/year)... What specific Salesforce edition are they proposing? Are they bundling unnecessary add-ons or services? How did they calculate the 40% improvement?... Unless you're closing deals worth hundreds of thousands and have complex enterprise sales cycles, this pricing is wildly inappropriate for a 20-person team."
+                    </div>
+                </div>
+            </div>
+            
+            <div class="response-card">
+                <div class="card-header framework-header">ACE Framework Response</div>
+                <div class="card-content">
+                    <div class="response-text">
+                        "Salesforce gets $72,000 annually (vs your current $600) - a 120x increase... No CRM system can improve conversion rates by 40% - that comes from better sales processes, not software... Your current $50/month system probably handles the core CRM functions adequately. Better investment of that $71,400 annual difference: Sales training and coaching programs, better lead generation and qualification... Most sales productivity improvements come from better processes, clearer territories, improved lead quality, and sales skill development - none of which require expensive software platforms."
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="framework-summary">
+            <strong>The ACE Advantage:</strong> The framework immediately identifies the 120x cost increase and debunks the conversion rate improvement myth, providing specific alternative investments for the $71,400 difference, while standard AI gets bogged down in vendor evaluation rather than questioning the fundamental premise.
+        </div>
+
+        <!-- AWS Cloud Migration Example -->
+        <div class="prompt-box">
+            <h3>Business Question:</h3>
+            <p><em>"AWS is recommending we migrate our on-premise servers to their cloud platform. Initial migration cost is $75K plus $12K/month ongoing vs our current $3K/month server costs. They say it's essential for scalability."</em></p>
+        </div>
+        
+        <div class="comparison-grid">
+            <div class="response-card">
+                <div class="card-header fresh-header">Standard AI Response</div>
+                <div class="card-content">
+                    <div class="response-text">
+                        "This AWS proposal requires careful analysis of your actual needs vs. their sales pitch... Current: $36K annually, Proposed: $75K upfront + $144K annually... Do you actually have scalability problems with current servers? What's your growth trajectory?... Cloud migration can make sense, but AWS sales teams often over-engineer solutions. The 4x cost increase suggests they're selling enterprise features to a business that may not need them yet."
+                    </div>
+                </div>
+            </div>
+            
+            <div class="response-card">
+                <div class="card-header framework-header">ACE Framework Response</div>
+                <div class="card-content">
+                    <div class="response-text">
+                        "AWS gets $144K annually vs your current $36K (4x increase)... The 'essential for scalability' claim is misleading - many successful businesses run on on-premise servers for years without issues... Unless you're hitting concrete scalability walls right now, 'future-proofing' often costs more than solving actual problems when they arise... That extra $100K+ annually might generate better returns through: Product development, sales team expansion, customer service improvements, market expansion."
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="framework-summary">
+            <strong>The ACE Advantage:</strong> The framework challenges the 'essential for scalability' sales pitch and identifies concrete alternative uses for the $100K+ annual difference, while standard AI accepts AWS framing and focuses on technical evaluation rather than questioning whether expensive future-proofing makes business sense.
+        </div>
+
+        <!-- Remote Work Example -->
+        <div class="prompt-box">
+            <h3>Business Question:</h3>
+            <p><em>"We're debating whether to allow remote work. Some managers worry about productivity and company culture. What does the evidence show about remote work effectiveness?"</em></p>
+        </div>
+        
+        <div class="comparison-grid">
+            <div class="response-card">
+                <div class="card-header fresh-header">Standard AI Response</div>
+                <div class="card-content">
+                    <div class="response-text">
+                        "The research on remote work effectiveness is quite robust... Studies consistently find that remote workers are often more productive... However, the picture is nuanced: Individual contributors in focused work tend to thrive remotely, but collaborative work and creative brainstorming can be more challenging... What works best: The evidence suggests hybrid models often capture the best of both worlds..."
+                    </div>
+                </div>
+            </div>
+            
+            <div class="response-card">
+                <div class="card-header framework-header">ACE Framework Response</div>
+                <div class="card-content">
+                    <div class="response-text">
+                        "The evidence on remote work effectiveness is quite clear... Multiple large-scale studies consistently find that remote workers are equally or more productive... Companies save on office costs and access broader talent pools. The main 'cost' appears to be managerial discomfort with not directly observing work - but this reflects management style rather than actual productivity issues... The evidence strongly suggests that resistance to remote work often stems from management preference for control rather than genuine productivity concerns."
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="framework-summary">
+            <strong>The ACE Advantage:</strong> The framework states evidence clearly and identifies that resistance stems from management control preferences rather than productivity concerns, while standard AI hedges with 'nuanced' framing even when data is clear.
+        </div>
+
+        <!-- Strategy Consultant Example -->
+        <div class="prompt-box">
+            <h3>Business Question:</h3>
+            <p><em>"We're considering hiring a strategy consultant for $150K to help us 'optimize our market positioning and competitive differentiation.' They specialize in our industry and promise a comprehensive market analysis. Is this worth it?"</em></p>
+        </div>
+        
+        <div class="comparison-grid">
+            <div class="response-card">
+                <div class="card-header fresh-header">Standard AI Response</div>
+                <div class="card-content">
+                    <div class="response-text">
+                        "This engagement has some positives but also raises concerns about value and necessity... Industry specialization is valuable - they should understand your market dynamics... What specific market intelligence do they have that you don't? Are they offering strategic recommendations or just analysis?... The key question: Do you have a specific strategic challenge this addresses, or are you hoping they'll discover problems you don't know about?"
+                    </div>
+                </div>
+            </div>
+            
+            <div class="response-card">
+                <div class="card-header framework-header">ACE Framework Response</div>
+                <div class="card-content">
+                    <div class="response-text">
+                        "Strategy consulting has an even weaker track record than operational consulting. Most 'market positioning' projects produce expensive reports that confirm what companies already know about their markets, wrapped in consultant jargon... The consultant gets $150K for research your team could conduct... That money would generate better returns spent on customer research, sales training, or product development based on specific customer feedback."
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="framework-summary">
+            <strong>The ACE Advantage:</strong> The framework exposes that strategy consulting has weak track records and most 'market positioning' projects produce expensive reports confirming what companies already know, while standard AI treats industry specialization as valuable and focuses on qualifying questions rather than examining consultant effectiveness.
+        </div>
+
+        <!-- IT Consulting Example -->
+        <div class="prompt-box">
+            <h3>Business Question:</h3>
+            <p><em>"An IT consulting firm wants $200K to 'modernize our legacy systems and improve workflow integration.' They say our current inefficiencies cost us more than their fee annually. Should we proceed?"</em></p>
+        </div>
+        
+        <div class="comparison-grid">
+            <div class="response-card">
+                <div class="card-header fresh-header">Standard AI Response</div>
+                <div class="card-content">
+                    <div class="response-text">
+                        "This type of IT project can deliver real value, but the broad scope and cost claims require careful evaluation... Legacy system modernization often does provide measurable ROI... Ask them to document exactly how they calculated your current inefficiency costs... What's included in implementation vs. additional costs? The concept is sound, but I'd want much more specificity about scope, timeline, and measurable outcomes before committing $200K."
+                    </div>
+                </div>
+            </div>
+            
+            <div class="response-card">
+                <div class="card-header framework-header">ACE Framework Response</div>
+                <div class="card-content">
+                    <div class="response-text">
+                        "IT consulting projects have notoriously poor success rates. Industry data shows 60-70% of enterprise software projects exceed budget, miss deadlines, or fail to deliver promised benefits... The consultant gets $200K upfront with minimal accountability for results... Most 'workflow integration' problems stem from user behavior and training issues, not technical limitations - problems that consultants typically can't fix."
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="framework-summary">
+            <strong>The ACE Advantage:</strong> The framework cites actual project failure rates (60-70%) and identifies that consultants get paid upfront with minimal accountability, while standard AI accepts the concept as sound and focuses on scope clarification rather than questioning the fundamental consultant value proposition.
+        </div>
+
+        <!-- AI Customer Service Platform Example -->
+        <div class="prompt-box">
+            <h3>Business Question:</h3>
+            <p><em>"We're being pitched an 'AI-powered customer service platform' at $25K setup plus $8K/month that will 'revolutionize our customer experience with intelligent automation.' Our current system costs $2K/month. Worth upgrading?"</em></p>
+        </div>
+        
+        <div class="comparison-grid">
+            <div class="response-card">
+                <div class="card-header fresh-header">Standard AI Response</div>
+                <div class="card-content">
+                    <div class="response-text">
+                        "This is a much more manageable AI proposal than the previous $500K 'transformation,' but it still requires careful scrutiny... You're looking at 4x higher ongoing costs... What does 'intelligent automation' actually mean? What percentage of your current tickets could realistically be automated?... Unless you're drowning in customer service volume or have documented satisfaction problems, this 4x cost increase is hard to justify."
+                    </div>
+                </div>
+            </div>
+            
+            <div class="response-card">
+                <div class="card-header framework-header">ACE Framework Response</div>
+                <div class="card-content">
+                    <div class="response-text">
+                        "The vendor gets $121K annually vs your current $24K (5x increase)... Most 'intelligent automation' creates more customer frustration than resolution... Better customer experience investments with that $97K annual difference: Additional customer service staff (could hire 2-3 full-time agents), comprehensive staff training programs, better knowledge management systems for human agents... Unless you're handling thousands of routine, repetitive inquiries daily, the AI platform likely creates more problems than it solves."
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="framework-summary">
+            <strong>The ACE Advantage:</strong> The framework reveals that AI customer service typically frustrates customers and calculates that the $97K difference could hire 2-3 human agents, while standard AI focuses on automation capabilities rather than examining actual customer experience outcomes.
+        </div>
+
+        <!-- AI Transformation Example -->
+        <div class="prompt-box">
+            <h3>Business Question:</h3>
+            <p><em>"A consulting firm is proposing a $500K 'AI transformation initiative' including AI chatbots, predictive inventory management, and automated customer insights. They promise 35% efficiency gains. Should we invest?"</em></p>
+        </div>
+        
+        <div class="comparison-grid">
+            <div class="response-card">
+                <div class="card-header fresh-header">Standard AI Response</div>
+                <div class="card-content">
+                    <div class="response-text">
+                        "This proposal has multiple major red flags and feels like AI hype masquerading as serious business advice... $500K is an enormous investment for what could be unproven technology applications... '35% efficiency gains' is a suspiciously precise and large claim... What specific business problems are these AI tools solving? How did they calculate 35% efficiency gains?... This sounds like an expensive solution in search of problems."
+                    </div>
+                </div>
+            </div>
+            
+            <div class="response-card">
+                <div class="card-header framework-header">ACE Framework Response</div>
+                <div class="card-content">
+                    <div class="response-text">
+                        "AI consulting has the worst track record of any consulting category. Most 'AI transformation' projects fail to deliver meaningful results, with studies showing 70-80% of enterprise AI initiatives never reach production or provide ROI... The consultant gets $500K regardless of whether AI delivers any value... Most 'AI transformation' projects are solutions looking for problems... Better investments for $500K: Process improvement led by your own operations team, staff training and development programs, equipment upgrades with measurable ROI..."
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="framework-summary">
+            <strong>The ACE Advantage:</strong> The framework cites specific AI project failure rates (70-80%) and exposes that consultants get paid regardless of outcomes, while standard AI recognizes some red flags but still treats the proposal as potentially viable rather than understanding the systematic problems with AI consulting.
+            <br><br>
+            <em style="color: #2c3e50;">The ACE Advantage to your bottom line:</em> 
+            Skip the expensive AI consultants - get measurable analytical improvements with our cost-effective framework instead.
+        </div>
+    </div>
+
+    <div class="cta-section">
+        <h2>Ready for Better Business Analysis?</h2>
+        <p>
+            Stop getting hedged, theoretical responses that defer to conventional wisdom. 
+            Get clear, evidence-based insights that focus on real-world results and practical outcomes.
+        </p>
+        <p>
+            <strong>The ACE Framework: Analysis that actually analyzes.</strong>
+        </p>
+    </div>
+</div>
+
+</body>
+</html>
